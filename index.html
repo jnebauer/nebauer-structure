@@ -94,9 +94,36 @@ footer p{font-size:9.5px;color:#C8D0DC}
   .tab-nav{display:none}
   .tab-panel{display:block !important;page-break-after:always}
 }
+
+/* ── Passcode overlay ── */
+#pc-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0}
+#pc-overlay.hidden{display:none}
+.pc-card{width:320px;padding:40px 36px;border:1px solid #F0F2F5;border-radius:12px;text-align:center}
+.pc-eyebrow{font-size:9px;letter-spacing:2px;color:#9CA3AF;text-transform:uppercase;margin-bottom:10px}
+.pc-title{font-size:17px;font-weight:600;color:#1E2B3A;margin-bottom:6px}
+.pc-sub{font-size:11px;color:#9CA3AF;margin-bottom:28px;line-height:1.5}
+.pc-input{width:100%;padding:11px 14px;border:1.5px solid #E5E7EB;border-radius:7px;font-family:inherit;font-size:14px;letter-spacing:3px;text-align:center;outline:none;transition:border-color 0.15s;color:#1E2B3A}
+.pc-input:focus{border-color:#1C3A80}
+.pc-input.error{border-color:#EF4444;animation:shake 0.3s ease}
+.pc-btn{margin-top:14px;width:100%;padding:11px;background:#1C3A80;color:#fff;border:none;border-radius:7px;font-family:inherit;font-size:12px;font-weight:500;cursor:pointer;letter-spacing:0.3px;transition:background 0.15s}
+.pc-btn:hover{background:#162e66}
+.pc-err{margin-top:10px;font-size:10px;color:#EF4444;min-height:14px}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 </style>
 </head>
 <body>
+
+<div id="pc-overlay">
+  <div class="pc-card">
+    <p class="pc-eyebrow">Structure Review</p>
+    <h2 class="pc-title">Nebauer Group</h2>
+    <p class="pc-sub">This document is confidential.<br>Enter the passcode to continue.</p>
+    <input id="pc-input" class="pc-input" type="password" placeholder="••••••••••" autocomplete="off" maxlength="30"/>
+    <button class="pc-btn" onclick="checkCode()">Continue →</button>
+    <p class="pc-err" id="pc-err"></p>
+  </div>
+</div>
+
 
 <header class="page-header">
   <div class="brand">
@@ -778,6 +805,31 @@ document.querySelectorAll('.tab-btn').forEach(function(btn){
     document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
   });
 });
+
+// ── Passcode ──────────────────────────────────────────
+var PASSCODE = 'nebauer2026';
+var overlay  = document.getElementById('pc-overlay');
+var inp      = document.getElementById('pc-input');
+var err      = document.getElementById('pc-err');
+
+if (sessionStorage.getItem('pc_auth') === '1') {
+  overlay.classList.add('hidden');
+}
+
+inp.addEventListener('keydown', function(e){ if(e.key==='Enter') checkCode(); });
+
+function checkCode(){
+  if(inp.value === PASSCODE){
+    sessionStorage.setItem('pc_auth','1');
+    overlay.classList.add('hidden');
+  } else {
+    err.textContent = 'Incorrect passcode — try again.';
+    inp.classList.add('error');
+    inp.value = '';
+    setTimeout(function(){ inp.classList.remove('error'); err.textContent=''; }, 1500);
+  }
+}
+// ──────────────────────────────────────────────────────
 </script>
 
 </body>
