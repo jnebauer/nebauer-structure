@@ -268,85 +268,89 @@ footer p{font-size:9.5px;color:#C8D0DC}
     </div>
     <div class="xero-row prop">
       <span class="xero-tag">Proposed</span>
-      <span>Each entity has its own Xero organisation (single login, one subscription per entity). The diagram reflects the legal ownership hierarchy — Innovative Focus is the portfolio holding company that owns the trading entities below it. Intercompany balances are managed via Due To/Due From accounts in each org. Vanessa retains Adviser access to each organisation individually.</span>
+      <span>Each entity has its own Xero organisation under a single login (one subscription per entity). Innovative Focus sits as the portfolio hub — owning all trading entities. Shared Services Co and Museum are future orgs, added when incorporated. Intercompany balances tracked via Due To/Due From accounts. Vanessa holds Adviser access to each org individually.</span>
     </div>
   </div>
 <div class="diagram-wrap wide">
-<svg viewBox="0 0 720 310" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 750 320" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <marker id="mx" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
     <polygon points="0 0,7 3,0 6" fill="#B0BEC5"/>
   </marker>
-  <marker id="mx-dim" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+  <marker id="mx-fut" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
     <polygon points="0 0,7 3,0 6" fill="#93C5FD"/>
   </marker>
 </defs>
 
-<text x="360" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A">Xero Structure</text>
-<text x="360" y="51" text-anchor="middle" font-size="9" fill="#16A34A" letter-spacing="1.8">PROPOSED SETUP — FOR REVIEW</text>
-<line x1="220" y1="59" x2="500" y2="59" stroke="#D1FAE5" stroke-width="0.75"/>
+<text x="375" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A">Xero Structure</text>
+<text x="375" y="51" text-anchor="middle" font-size="9" fill="#16A34A" letter-spacing="1.8">PROPOSED SETUP — FOR REVIEW</text>
+<line x1="230" y1="59" x2="520" y2="59" stroke="#D1FAE5" stroke-width="0.75"/>
 
-<!-- ── ROW 1 label ── -->
-<text x="30" y="76" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRUST &amp; HOLDING LAYER</text>
+<!-- ── ROW 1 LABEL ── -->
+<text x="30" y="76" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRUST &amp; HOLDING LAYER — each has its own Xero org</text>
 
 <!-- NFT: x=30 w=160 center=110 -->
 <rect x="30" y="82" width="160" height="50" rx="7" fill="#1C3A80"/>
 <text x="110" y="103" text-anchor="middle" font-size="10.5" font-weight="500" fill="#fff">Nebauer Family Trust</text>
 <text x="110" y="119" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
 
-<!-- Innovative Focus: x=210 w=220 center=320 — portfolio hub, bold border -->
-<rect x="210" y="82" width="220" height="50" rx="7" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
-<text x="320" y="101" text-anchor="middle" font-size="11" font-weight="600" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
-<text x="320" y="116" text-anchor="middle" font-size="8.5" fill="#6B7280">Holding Company · Portfolio Hub</text>
+<!-- Innovative Focus: x=210 w=225 center=322 — Portfolio Hub, bold border -->
+<rect x="210" y="82" width="225" height="50" rx="7" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
+<text x="322" y="101" text-anchor="middle" font-size="11" font-weight="600" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
+<text x="322" y="117" text-anchor="middle" font-size="8.5" fill="#6B7280">Holding Company · Portfolio Hub</text>
 
-<!-- Nebauer Group: x=450 w=165 center=532 -->
-<rect x="450" y="82" width="165" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="532" y="103" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Nebauer Group Pty Ltd</text>
-<text x="532" y="119" text-anchor="middle" font-size="8" fill="#9CA3AF">Trustee Company</text>
+<!-- Nebauer Group: x=455 w=165 center=537 -->
+<rect x="455" y="82" width="165" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="537" y="103" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Nebauer Group Pty Ltd</text>
+<text x="537" y="119" text-anchor="middle" font-size="8" fill="#9CA3AF">Trustee Company</text>
 
-<!-- "Each = own Xero org" badge on row 1 -->
-<text x="640" y="108" text-anchor="middle" font-size="7" fill="#16A34A" font-weight="600" letter-spacing="0.3">Each entity has</text>
-<text x="640" y="118" text-anchor="middle" font-size="7" fill="#16A34A" font-weight="600" letter-spacing="0.3">its own Xero org</text>
+<!-- ── CONNECTION: IF → 3 trading entities ── -->
+<!-- Trunk from IF bottom (x=322, y=132) to bar (y=175) -->
+<line x1="322" y1="132" x2="322" y2="175" stroke="#B0BEC5" stroke-width="1.5"/>
+<!-- Bar: Xzibit=172, Shared Services=362, Museum=555 -->
+<line x1="172" y1="175" x2="555" y2="175" stroke="#B0BEC5" stroke-width="1.5"/>
+<circle cx="322" cy="175" r="3" fill="#C8D0DC"/>
+<!-- 100% labels above drops -->
+<text x="172" y="170" text-anchor="middle" font-size="7.5" fill="#9CA3AF">100%</text>
+<text x="362" y="170" text-anchor="middle" font-size="7.5" fill="#9CA3AF">100%</text>
+<text x="555" y="170" text-anchor="middle" font-size="7.5" fill="#93C5FD">100%</text>
+<!-- Drops -->
+<line x1="172" y1="175" x2="172" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx)"/>
+<line x1="362" y1="175" x2="362" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-fut)"/>
+<line x1="555" y1="175" x2="555" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-fut)"/>
 
-<!-- ── CONNECTION: IF → trading entities ── -->
-<!-- Trunk from IF bottom centre (x=320 y=132) to bar (y=178) -->
-<line x1="320" y1="132" x2="320" y2="178" stroke="#B0BEC5" stroke-width="1.5"/>
-<!-- Bar: Xzibit center=218, Museum center=490 -->
-<line x1="218" y1="178" x2="490" y2="178" stroke="#B0BEC5" stroke-width="1.5"/>
-<circle cx="320" cy="178" r="3" fill="#C8D0DC"/>
-<!-- 100% ownership labels above each drop -->
-<text x="208" y="174" text-anchor="end" font-size="8" fill="#9CA3AF">100%</text>
-<text x="500" y="174" text-anchor="start" font-size="8" fill="#93C5FD">100%</text>
-<!-- Drops to trading entities -->
-<line x1="218" y1="178" x2="218" y2="196" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx)"/>
-<line x1="490" y1="178" x2="490" y2="196" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-dim)"/>
+<!-- ── ROW 2 LABEL ── -->
+<text x="30" y="190" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRADING ENTITIES — OWNED BY INNOVATIVE FOCUS (100%)</text>
 
-<!-- ── ROW 2 label ── -->
-<text x="30" y="192" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRADING ENTITIES — OWNED BY INNOVATIVE FOCUS</text>
+<!-- Xzibit: x=87 w=170 center=172 -->
+<rect x="87" y="196" width="170" height="52" rx="6" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="172" y="218" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
+<text x="172" y="234" text-anchor="middle" font-size="8" fill="#9CA3AF">Trading Company — Active</text>
 
-<!-- Xzibit: x=133 w=170 center=218 -->
-<rect x="133" y="198" width="170" height="50" rx="6" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="218" y="219" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
-<text x="218" y="235" text-anchor="middle" font-size="8" fill="#9CA3AF">Trading Company</text>
+<!-- Shared Services Co: x=277 w=170 center=362 — future -->
+<rect x="277" y="196" width="170" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="362" y="215" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Shared Services Co</text>
+<text x="362" y="228" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future Xero org</text>
+<text x="362" y="240" text-anchor="middle" font-size="7.5" fill="#93C5FD">Added when incorporated</text>
 
-<!-- Museum: x=405 w=170 center=490 -->
-<rect x="405" y="198" width="170" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
-<text x="490" y="219" text-anchor="middle" font-size="10" font-weight="500" fill="#1E3A7A">Museum Pty Ltd</text>
-<text x="490" y="235" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">Future — To be incorporated</text>
+<!-- Museum: x=470 w=170 center=555 — future -->
+<rect x="470" y="196" width="170" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="555" y="215" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Museum Pty Ltd</text>
+<text x="555" y="228" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future Xero org</text>
+<text x="555" y="240" text-anchor="middle" font-size="7.5" fill="#93C5FD">Added when incorporated</text>
 
-<!-- ── Intercompany note ── -->
-<text x="360" y="272" text-anchor="middle" font-size="8.5" font-style="italic" fill="#C8D0DC">Intercompany balances between entities tracked via Due To / Due From accounts in each Xero org</text>
+<!-- ── Caption ── -->
+<text x="375" y="272" text-anchor="middle" font-size="8.5" font-style="italic" fill="#C8D0DC">Intercompany balances tracked via Due To / Due From accounts in each Xero org · Adviser access: Vanessa</text>
 
 <!-- ── Legend ── -->
-<rect x="30"  y="283" width="11" height="11" rx="2" fill="#1C3A80"/>
-<text x="47"  y="292" font-size="8.5" fill="#9CA3AF">Trust</text>
-<rect x="85"  y="283" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
-<text x="102" y="292" font-size="8.5" fill="#9CA3AF">Portfolio Hub</text>
-<rect x="190" y="283" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="207" y="292" font-size="8.5" fill="#9CA3AF">Existing Entity</text>
-<rect x="305" y="283" width="11" height="11" rx="2" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5"/>
-<text x="322" y="292" font-size="8.5" fill="#9CA3AF">Future Entity</text>
-<text x="420" y="292" font-size="8.5" fill="#9CA3AF">↓ IF owns 100% of trading entities</text>
+<rect x="30"  y="284" width="11" height="11" rx="2" fill="#1C3A80"/>
+<text x="47"  y="293" font-size="8.5" fill="#9CA3AF">Trust</text>
+<rect x="88"  y="284" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
+<text x="105" y="293" font-size="8.5" fill="#9CA3AF">Portfolio Hub</text>
+<rect x="198" y="284" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="215" y="293" font-size="8.5" fill="#9CA3AF">Existing Entity</text>
+<rect x="318" y="284" width="11" height="11" rx="2" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="335" y="293" font-size="8.5" fill="#9CA3AF">Future Entity (own org when incorporated)</text>
 </svg>
 </div>
 </div>
