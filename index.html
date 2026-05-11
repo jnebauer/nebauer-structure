@@ -133,7 +133,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
   <div class="meta">
     <p><strong>Prepared for:</strong> Accountant Review</p>
     <p><strong>Classification:</strong> Confidential</p>
-    <p>April 2026</p>
+    <p>May 2026</p>
   </div>
 </header>
 
@@ -155,50 +155,82 @@ footer p{font-size:9.5px;color:#C8D0DC}
 ══════════════════════════════════════════ -->
 <div class="tab-panel active" id="tab-current">
 <div class="diagram-wrap">
-<svg viewBox="0 0 520 430" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 465" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <marker id="mc" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
     <polygon points="0 0,7 3,0 6" fill="#B0BEC5"/>
   </marker>
 </defs>
-<text x="260" y="40" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A" letter-spacing="0.2">Business Structure</text>
-<text x="260" y="57" text-anchor="middle" font-size="9" fill="#9CA3AF" letter-spacing="1.8">CURRENT STRUCTURE</text>
-<line x1="178" y1="65" x2="342" y2="65" stroke="#E5E7EB" stroke-width="0.75"/>
+<text x="400" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A" letter-spacing="0.2">Business Structure</text>
+<text x="400" y="51" text-anchor="middle" font-size="9" fill="#9CA3AF" letter-spacing="1.8">CURRENT STRUCTURE</text>
+<!-- Vertical divider -->
+<line x1="390" y1="60" x2="390" y2="425" stroke="#F0F2F5" stroke-width="1.5"/>
+<!-- Column labels -->
+<text x="220" y="63" text-anchor="middle" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">BUSINESS / TRADING</text>
+<text x="580" y="63" text-anchor="middle" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">PERSONAL / INVESTMENT</text>
 
-<rect x="170" y="78" width="180" height="50" rx="7" fill="#1C3A80"/>
-<text x="260" y="99" text-anchor="middle" font-size="11.5" font-weight="500" fill="#fff">Nebauer Family Trust</text>
-<text x="260" y="116" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
+<!-- ═══ LEFT BRANCH ═══ -->
+<!-- FPG — Trustee Company -->
+<rect x="100" y="70" width="240" height="55" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="220" y="90" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E2B3A">The Focus Productions</text>
+<text x="220" y="105" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E2B3A">Group Pty Ltd</text>
+<text x="220" y="119" text-anchor="middle" font-size="7.5" fill="#9CA3AF">Trustee Company</text>
+<!-- Arrow FPG → NFT with "As Trustee for" label -->
+<line x1="220" y1="125" x2="220" y2="150" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
+<text x="228" y="140" font-size="7.5" font-style="italic" fill="#B0BEC5">As Trustee for</text>
+<!-- NFT box -->
+<rect x="100" y="155" width="240" height="50" rx="7" fill="#1C3A80"/>
+<text x="220" y="176" text-anchor="middle" font-size="11.5" font-weight="500" fill="#fff">Nebauer Family Trust</text>
+<text x="220" y="193" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
+<!-- NFT → IF line with 99% label -->
+<line x1="220" y1="205" x2="220" y2="252" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
+<text x="228" y="228" font-size="8" fill="#9CA3AF">99%</text>
+<!-- Joel ellipse (1% direct shareholder of IF) -->
+<ellipse cx="46" cy="215" rx="42" ry="23" fill="#1E2B3A"/>
+<text x="46" y="211" text-anchor="middle" font-size="9.5" font-weight="500" fill="#fff">Joel</text>
+<text x="46" y="225" text-anchor="middle" font-size="9.5" font-weight="500" fill="#fff">Nebauer</text>
+<!-- Joel → IF diagonal line -->
+<line x1="88" y1="210" x2="100" y2="272" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
+<text x="75" y="247" font-size="8" fill="#9CA3AF">1%</text>
+<!-- IF box -->
+<rect x="100" y="257" width="240" height="52" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="220" y="278" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
+<text x="220" y="295" text-anchor="middle" font-size="8.5" fill="#9CA3AF">Corporate Beneficiary · Holding Company</text>
+<!-- IF → Xzibit -->
+<line x1="220" y1="309" x2="220" y2="355" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
+<text x="228" y="332" font-size="8" fill="#9CA3AF">100%</text>
+<!-- Xzibit box -->
+<rect x="120" y="358" width="200" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="220" y="379" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
+<text x="220" y="396" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
 
-<line x1="260" y1="128" x2="260" y2="188" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
-<!-- Ownership annotation: NFT→IF -->
-<text x="268" y="157" font-size="8" fill="#9CA3AF">99% NFT · 1% Joel</text>
+<!-- ═══ RIGHT BRANCH ═══ -->
+<!-- Nebauer Group — Trustee Company -->
+<rect x="460" y="70" width="240" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="580" y="91" text-anchor="middle" font-size="11" font-weight="500" fill="#1E2B3A">Nebauer Group Pty Ltd</text>
+<text x="580" y="108" text-anchor="middle" font-size="8.5" fill="#9CA3AF">Trustee Company</text>
+<!-- Arrow Nebauer Group → Nexbit Trust -->
+<line x1="580" y1="120" x2="580" y2="150" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
+<text x="588" y="138" font-size="7.5" font-style="italic" fill="#B0BEC5">As Trustee for</text>
+<!-- Nexbit Trust box -->
+<rect x="460" y="155" width="240" height="50" rx="7" fill="#1C3A80"/>
+<text x="580" y="176" text-anchor="middle" font-size="11.5" font-weight="500" fill="#fff">Nexbit Trust</text>
+<text x="580" y="193" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
+<!-- Nexbit Trust → Vault42 -->
+<line x1="580" y1="205" x2="580" y2="252" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
+<!-- Vault42 box -->
+<rect x="460" y="257" width="240" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="580" y="278" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Vault42 Pty Ltd</text>
+<text x="580" y="295" text-anchor="middle" font-size="9" fill="#9CA3AF">Corporate Beneficiary</text>
 
-<rect x="170" y="188" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="260" y="209" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
-<text x="260" y="226" text-anchor="middle" font-size="9" fill="#9CA3AF">Holding Company</text>
-
-<line x1="260" y1="238" x2="260" y2="298" stroke="#B0BEC5" stroke-width="1.5"/>
-<line x1="160" y1="298" x2="360" y2="298" stroke="#B0BEC5" stroke-width="1.5"/>
-<circle cx="260" cy="298" r="2.5" fill="#C8D0DC"/>
-<line x1="160" y1="298" x2="160" y2="332" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
-<line x1="360" y1="298" x2="360" y2="332" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
-<!-- Ownership annotations: IF→subsidiaries -->
-<text x="105" y="314" text-anchor="middle" font-size="8" fill="#9CA3AF">100%</text>
-<text x="415" y="314" text-anchor="middle" font-size="8" fill="#9CA3AF">100%</text>
-
-<rect x="70" y="332" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="160" y="353" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
-<text x="160" y="370" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
-
-<rect x="270" y="332" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="360" y="353" text-anchor="middle" font-size="11" font-weight="500" fill="#1E2B3A">Upright Projects Pty Ltd</text>
-<text x="360" y="370" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
-
-<text x="260" y="410" text-anchor="middle" font-size="9.5" font-style="italic" fill="#C4CBD5">Joel Nebauer — Director / Controller</text>
-<rect x="70" y="420" width="12" height="12" rx="2.5" fill="#1C3A80"/>
-<text x="88" y="430" font-size="9" fill="#9CA3AF">Trust</text>
-<rect x="128" y="420" width="12" height="12" rx="2.5" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="146" y="430" font-size="9" fill="#9CA3AF">Company / Entity</text>
+<!-- Footer -->
+<text x="400" y="438" text-anchor="middle" font-size="9.5" font-style="italic" fill="#C4CBD5">Joel Nebauer — Director / Controller of all entities</text>
+<rect x="100" y="446" width="12" height="12" rx="2.5" fill="#1C3A80"/>
+<text x="118" y="456" font-size="9" fill="#9CA3AF">Trust</text>
+<rect x="158" y="446" width="12" height="12" rx="2.5" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="176" y="456" font-size="9" fill="#9CA3AF">Company / Entity</text>
+<rect x="280" y="446" width="12" height="12" rx="2.5" fill="#1E2B3A"/>
+<text x="298" y="456" font-size="9" fill="#9CA3AF">Individual</text>
 </svg>
 </div>
 </div>
@@ -242,11 +274,11 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <!-- Innovative Focus -->
 <rect x="330" y="182" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
 <text x="420" y="203" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
-<text x="420" y="220" text-anchor="middle" font-size="9" fill="#9CA3AF">Holding Company</text>
+<text x="420" y="220" text-anchor="middle" font-size="8" fill="#9CA3AF">Corporate Beneficiary · Holding Company</text>
 
 <!-- Trunk + ownership bar -->
 <line x1="420" y1="232" x2="420" y2="268" stroke="#B0BEC5" stroke-width="1.5"/>
-<line x1="136" y1="268" x2="704" y2="268" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="136" y1="268" x2="562" y2="268" stroke="#B0BEC5" stroke-width="1.5"/>
 <circle cx="420" cy="268" r="3" fill="#C8D0DC"/>
 <text x="136" y="263" text-anchor="middle" font-size="7.5" fill="#9CA3AF">100%</text>
 <text x="278" y="263" text-anchor="middle" font-size="7.5" fill="#2563EB">100%</text>
@@ -256,7 +288,6 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <line x1="278" y1="268" x2="278" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
 <line x1="420" y1="268" x2="420" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
 <line x1="562" y1="268" x2="562" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
-<line x1="704" y1="268" x2="704" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp-dim)"/>
 
 <!-- Dividends labels — upward profit flow from OpCos to HoldCo -->
 <text x="144" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
@@ -284,12 +315,6 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <rect x="497" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
 <text x="562" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Print Co Pty Ltd</text>
 <text x="562" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">Future</text>
-
-<!-- Upright: x=639 w=130 center=704 -->
-<rect x="639" y="308" width="130" height="50" rx="6" fill="#F7F8F9" stroke="#D8DCE0" stroke-width="1"/>
-<text x="704" y="326" text-anchor="middle" font-size="9" font-weight="500" fill="#ABABAB">Upright Projects</text>
-<text x="704" y="338" text-anchor="middle" font-size="9" font-weight="500" fill="#ABABAB">Pty Ltd</text>
-<text x="704" y="351" text-anchor="middle" font-size="8.5" fill="#C4CBD5">Not Trading</text>
 
 <!-- Service fee lines: active OpCos → Shared Services Co (centered at x=420 y=420) -->
 <line x1="136" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
@@ -324,7 +349,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
     </div>
   </div>
 <div class="diagram-wrap wide">
-<svg viewBox="0 0 750 320" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 660 320" xmlns="http://www.w3.org/2000/svg">
 <defs>
   <marker id="mx" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
     <polygon points="0 0,7 3,0 6" fill="#B0BEC5"/>
@@ -349,12 +374,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <!-- Innovative Focus: x=210 w=225 center=322 — Portfolio Hub, bold border -->
 <rect x="210" y="82" width="225" height="50" rx="7" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
 <text x="322" y="101" text-anchor="middle" font-size="11" font-weight="600" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
-<text x="322" y="117" text-anchor="middle" font-size="8.5" fill="#6B7280">Holding Company · Portfolio Hub</text>
-
-<!-- Nebauer Group: x=455 w=165 center=537 -->
-<rect x="455" y="82" width="165" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="537" y="103" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Nebauer Group Pty Ltd</text>
-<text x="537" y="119" text-anchor="middle" font-size="8" fill="#9CA3AF">Trustee Company</text>
+<text x="322" y="117" text-anchor="middle" font-size="7.5" fill="#6B7280">Corporate Beneficiary · Holding Company · Portfolio Hub</text>
 
 <!-- ── CONNECTION: IF → 3 trading entities ── -->
 <!-- Trunk from IF bottom (x=322, y=132) to bar (y=175) -->
@@ -549,7 +569,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <text x="390" y="488" text-anchor="middle" font-size="9" fill="#9CA3AF">Operating Buffer</text>
 <rect x="170" y="570" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
 <text x="260" y="591" text-anchor="middle" font-size="12" font-weight="500" fill="#1E2B3A">Vault42 Pty Ltd</text>
-<text x="260" y="608" text-anchor="middle" font-size="9" fill="#9CA3AF">Bucket Company</text>
+<text x="260" y="608" text-anchor="middle" font-size="9" fill="#9CA3AF">Corporate Beneficiary</text>
 <line x1="260" y1="620" x2="260" y2="682" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mw)"/>
 <rect x="170" y="682" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
 <text x="260" y="703" text-anchor="middle" font-size="12" font-weight="500" fill="#1E2B3A">Retained Profits</text>
@@ -584,42 +604,46 @@ footer p{font-size:9.5px;color:#C8D0DC}
 
 <!-- ── Distribution flow: NFT right edge (350,121) → Joel left edge (810,119) ── -->
 <text x="580" y="109" text-anchor="middle" font-size="8" font-style="italic" font-weight="500" fill="#059669">Annual trust distributions</text>
-<path d="M 350,121 C 490,121 670,119 810,119" stroke="#059669" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#mfdist)"/>
+<path d="M 350,191 C 490,191 670,119 810,119" stroke="#059669" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#mfdist)"/>
 <text x="580" y="134" text-anchor="middle" font-size="7" fill="#6EE7B7" font-style="italic">Joel as beneficiary — flows into personal wealth structure</text>
 
-<!-- ═══════════ BUSINESS STRUCTURE (left, x 0–520, y +18 from Current tab) ═══════════ -->
+<!-- ═══════════ BUSINESS STRUCTURE (left, x 0–520) ═══════════ -->
 <text x="260" y="58" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A">Business Structure</text>
 <text x="260" y="75" text-anchor="middle" font-size="9" fill="#9CA3AF" letter-spacing="1.8">CURRENT STRUCTURE</text>
-<line x1="178" y1="83" x2="342" y2="83" stroke="#E5E7EB" stroke-width="0.75"/>
+<line x1="155" y1="83" x2="365" y2="83" stroke="#E5E7EB" stroke-width="0.75"/>
 
-<rect x="170" y="96" width="180" height="50" rx="7" fill="#1C3A80"/>
-<text x="260" y="117" text-anchor="middle" font-size="11.5" font-weight="500" fill="#fff">Nebauer Family Trust</text>
-<text x="260" y="134" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
+<!-- FPG — Trustee of NFT -->
+<rect x="155" y="90" width="210" height="52" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="260" y="109" text-anchor="middle" font-size="9" font-weight="500" fill="#1E2B3A">The Focus Productions Group Pty Ltd</text>
+<text x="260" y="124" text-anchor="middle" font-size="7.5" fill="#9CA3AF">Trustee Company</text>
+<!-- Arrow FPG → NFT -->
+<line x1="260" y1="142" x2="260" y2="163" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
+<text x="268" y="156" font-size="7" font-style="italic" fill="#B0BEC5">As Trustee for</text>
 
-<line x1="260" y1="146" x2="260" y2="206" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
-<text x="268" y="176" font-size="8" fill="#9CA3AF">99% NFT · 1% Joel</text>
+<!-- NFT -->
+<rect x="170" y="166" width="180" height="50" rx="7" fill="#1C3A80"/>
+<text x="260" y="187" text-anchor="middle" font-size="11.5" font-weight="500" fill="#fff">Nebauer Family Trust</text>
+<text x="260" y="204" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
 
-<rect x="170" y="206" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="260" y="227" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
-<text x="260" y="244" text-anchor="middle" font-size="9" fill="#9CA3AF">Holding Company</text>
+<!-- NFT → IF -->
+<line x1="260" y1="216" x2="260" y2="262" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
+<text x="268" y="238" font-size="8" fill="#9CA3AF">99% NFT · 1% Joel</text>
 
-<line x1="260" y1="256" x2="260" y2="316" stroke="#B0BEC5" stroke-width="1.5"/>
-<line x1="160" y1="316" x2="360" y2="316" stroke="#B0BEC5" stroke-width="1.5"/>
-<circle cx="260" cy="316" r="2.5" fill="#C8D0DC"/>
-<line x1="160" y1="316" x2="160" y2="350" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
-<line x1="360" y1="316" x2="360" y2="350" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
-<text x="105" y="332" text-anchor="middle" font-size="8" fill="#9CA3AF">100%</text>
-<text x="415" y="332" text-anchor="middle" font-size="8" fill="#9CA3AF">100%</text>
+<!-- IF -->
+<rect x="170" y="265" width="180" height="52" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="260" y="285" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
+<text x="260" y="302" text-anchor="middle" font-size="8" fill="#9CA3AF">Corporate Beneficiary · Holding Company</text>
 
-<rect x="70" y="350" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="160" y="371" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
-<text x="160" y="388" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
+<!-- IF → Xzibit (single) -->
+<line x1="260" y1="317" x2="260" y2="358" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
+<text x="268" y="338" font-size="8" fill="#9CA3AF">100%</text>
 
-<rect x="270" y="350" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="360" y="371" text-anchor="middle" font-size="11" font-weight="500" fill="#1E2B3A">Upright Projects Pty Ltd</text>
-<text x="360" y="388" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
+<!-- Xzibit (centred) -->
+<rect x="170" y="360" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="260" y="381" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
+<text x="260" y="398" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
 
-<text x="260" y="428" text-anchor="middle" font-size="9.5" font-style="italic" fill="#C4CBD5">Joel Nebauer — Director / Controller</text>
+<text x="260" y="440" text-anchor="middle" font-size="9.5" font-style="italic" fill="#C4CBD5">Joel Nebauer — Director / Controller</text>
 
 <!-- ═══════════ PERSONAL WEALTH (right, x+640, y+18) ═══════════ -->
 <text x="900" y="54" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A">Personal Wealth Structure</text>
@@ -659,7 +683,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
 
 <rect x="810" y="588" width="180" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
 <text x="900" y="609" text-anchor="middle" font-size="12" font-weight="500" fill="#1E2B3A">Vault42 Pty Ltd</text>
-<text x="900" y="626" text-anchor="middle" font-size="9" fill="#9CA3AF">Bucket Company</text>
+<text x="900" y="626" text-anchor="middle" font-size="9" fill="#9CA3AF">Corporate Beneficiary</text>
 
 <line x1="900" y1="638" x2="900" y2="700" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mfall)"/>
 
@@ -687,7 +711,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
      structure document + current known info
 ══════════════════════════════════════════ -->
 <div class="tab-panel" id="tab-details">
-  <p class="details-intro">Entity details below are drawn from the structure document prepared by Michael dated 25 September 2022, supplemented with current known information. Items marked <span class="etag et-review">To Confirm</span> should be verified with Michael — ACNs and shareholdings for newer entities are not yet confirmed.</p>
+  <p class="details-intro">Entity details below are drawn from the structure document prepared by Michael dated 30 June 2025, supplemented with current known information. Items marked <span class="etag et-review">To Confirm</span> should be verified with Michael — ACNs and shareholdings for newer entities are not yet confirmed.</p>
 
   <table class="entity-table">
     <thead>
@@ -715,7 +739,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
         <td class="acn">—</td>
         <td>—</td>
         <td>Trustee: The Focus Productions Group Pty Ltd</td>
-        <td><span class="etag et-review">Status TBC</span> Confirm with Michael if wound down</td>
+        <td><span class="etag et-inactive">Not in current structure</span> Confirm with Michael if formally wound down</td>
       </tr>
       <tr>
         <td><strong>The Focus Productions Group Pty Ltd</strong><br><span style="font-size:10px;color:#9CA3AF">Trustee of Nebauer Family Trust</span></td>
@@ -749,14 +773,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
         <td>Innovative Focus Pty Ltd — 2 shares @ $1.00 (100%)</td>
         <td><span class="etag et-active">Active</span> Trading Company</td>
       </tr>
-      <tr>
-        <td><strong>Upright Projects Pty Ltd</strong></td>
-        <td><span class="etag et-co">Company</span></td>
-        <td class="acn">154 999 461</td>
-        <td>Joel Nebauer</td>
-        <td>Innovative Focus Pty Ltd — 100 shares @ $0.10 (100%)</td>
-        <td><span class="etag et-inactive">Not Trading</span> Advise on wind-down / deregistration</td>
-      </tr>
+
       <tr>
         <td><strong>Nexbit Trust</strong><br><span style="font-size:10px;color:#9CA3AF">TFN 691 762 091</span></td>
         <td><span class="etag et-trust">Trust</span></td>
