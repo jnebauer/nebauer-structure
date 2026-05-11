@@ -6,6 +6,8 @@
 <title>Nebauer — Structure Review</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;background:#fff;color:#1E2B3A;min-height:100vh}
@@ -91,9 +93,15 @@ footer p{font-size:9.5px;color:#C8D0DC}
   .entity-table th,.entity-table td{padding:9px 8px;font-size:10px}
 }
 @media print{
-  .tab-nav{display:none}
-  .tab-panel{display:block !important;page-break-after:always}
+  .page-header,.tab-nav,footer,#pdf-btn,#pc-overlay{display:none!important}
+  main{padding:10px!important}
+  .tab-panel{display:none!important}
+  .tab-panel.active{display:block!important;page-break-after:avoid}
+  .diagram-wrap,.diagram-wrap.wide{max-width:100%!important}
 }
+#pdf-btn{font-family:inherit;font-size:10px;font-weight:500;color:#1E2B3A;background:#fff;border:1.5px solid #C8D0DC;border-radius:6px;padding:7px 16px;cursor:pointer;letter-spacing:0.3px;transition:all 0.15s;white-space:nowrap;align-self:center}
+#pdf-btn:hover{border-color:#1E2B3A;background:#F8F9FB}
+#pdf-btn:disabled{opacity:0.5;cursor:default}
 
 /* ── Passcode overlay ── */
 #pc-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0}
@@ -130,10 +138,13 @@ footer p{font-size:9.5px;color:#C8D0DC}
     <p class="eyebrow">Structure Review</p>
     <h1>Nebauer Group</h1>
   </div>
-  <div class="meta">
-    <p><strong>Prepared for:</strong> Accountant Review</p>
-    <p><strong>Classification:</strong> Confidential</p>
-    <p>May 2026</p>
+  <div style="display:flex;align-items:center;gap:18px">
+    <button id="pdf-btn" onclick="exportPDF()">⬇ Export PDF</button>
+    <div class="meta">
+      <p><strong>Prepared for:</strong> Accountant Review</p>
+      <p><strong>Classification:</strong> Confidential</p>
+      <p id="last-updated">May 2026</p>
+    </div>
   </div>
 </header>
 
@@ -200,7 +211,7 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <line x1="220" y1="309" x2="220" y2="355" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mc)"/>
 <text x="228" y="332" font-size="8" fill="#9CA3AF">100%</text>
 <!-- Xzibit box -->
-<rect x="120" y="358" width="200" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<rect x="100" y="358" width="240" height="50" rx="7" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
 <text x="220" y="379" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
 <text x="220" y="396" text-anchor="middle" font-size="9" fill="#9CA3AF">Trading Company</text>
 
@@ -276,60 +287,61 @@ footer p{font-size:9.5px;color:#C8D0DC}
 <text x="420" y="203" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
 <text x="420" y="220" text-anchor="middle" font-size="8" fill="#9CA3AF">Corporate Beneficiary · Holding Company</text>
 
-<!-- Trunk + ownership bar -->
+<!-- Trunk + ownership bar — 4 OpCos symmetric around x=420, spacing 140 -->
+<!-- Centres: 210, 350, 490, 630 -->
 <line x1="420" y1="232" x2="420" y2="268" stroke="#B0BEC5" stroke-width="1.5"/>
-<line x1="136" y1="268" x2="562" y2="268" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="210" y1="268" x2="630" y2="268" stroke="#B0BEC5" stroke-width="1.5"/>
 <circle cx="420" cy="268" r="3" fill="#C8D0DC"/>
-<text x="136" y="263" text-anchor="middle" font-size="7.5" fill="#9CA3AF">100%</text>
-<text x="278" y="263" text-anchor="middle" font-size="7.5" fill="#2563EB">100%</text>
+<text x="210" y="263" text-anchor="middle" font-size="7.5" fill="#9CA3AF">100%</text>
+<text x="350" y="263" text-anchor="middle" font-size="7.5" fill="#2563EB">100%</text>
 
-<!-- Ownership drops to 5 OpCos -->
-<line x1="136" y1="268" x2="136" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
-<line x1="278" y1="268" x2="278" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
-<line x1="420" y1="268" x2="420" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
-<line x1="562" y1="268" x2="562" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
+<!-- Ownership drops -->
+<line x1="210" y1="268" x2="210" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
+<line x1="350" y1="268" x2="350" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
+<line x1="490" y1="268" x2="490" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
+<line x1="630" y1="268" x2="630" y2="308" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mp)"/>
 
-<!-- Dividends labels — upward profit flow from OpCos to HoldCo -->
-<text x="144" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
-<text x="286" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
-<text x="428" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
-<text x="570" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
+<!-- Dividends labels -->
+<text x="218" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
+<text x="358" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
+<text x="498" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
+<text x="638" y="292" font-size="7" fill="#B0BEC5" font-style="italic">Dividends ↑</text>
 
-<!-- OpCo boxes — y=308 h=50 bottom=358 -->
-<!-- Xzibit: x=71 w=130 center=136 -->
-<rect x="71" y="308" width="130" height="50" rx="6" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="136" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
-<text x="136" y="345" text-anchor="middle" font-size="8.5" fill="#9CA3AF">Trading Company</text>
+<!-- OpCo boxes — y=308 h=50, w=130 each -->
+<!-- Xzibit: x=145 centre=210 -->
+<rect x="145" y="308" width="130" height="50" rx="6" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="210" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
+<text x="210" y="345" text-anchor="middle" font-size="8.5" fill="#9CA3AF">Trading Company</text>
 
-<!-- Museum: x=213 w=130 center=278 -->
-<rect x="213" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5"/>
-<text x="278" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Museum Pty Ltd</text>
-<text x="278" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">New — Trading Co</text>
+<!-- Museum: x=285 centre=350 -->
+<rect x="285" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="350" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Museum Pty Ltd</text>
+<text x="350" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">New — Trading Co</text>
 
-<!-- AV Co: x=355 w=130 center=420 -->
-<rect x="355" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
-<text x="420" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">AV Co Pty Ltd</text>
-<text x="420" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">Future</text>
+<!-- AV Co: x=425 centre=490 -->
+<rect x="425" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="490" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">AV Co Pty Ltd</text>
+<text x="490" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">Future</text>
 
-<!-- Print Co: x=497 w=130 center=562 -->
-<rect x="497" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
-<text x="562" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Print Co Pty Ltd</text>
-<text x="562" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">Future</text>
+<!-- Print Co: x=565 centre=630 -->
+<rect x="565" y="308" width="130" height="50" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="630" y="329" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Print Co Pty Ltd</text>
+<text x="630" y="345" text-anchor="middle" font-size="8.5" font-weight="500" fill="#2563EB">Future</text>
 
-<!-- Service fee lines: active OpCos → Shared Services Co (centered at x=420 y=420) -->
-<line x1="136" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
-<line x1="278" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
-<line x1="420" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
-<line x1="562" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
-<text x="540" y="395" font-size="7" fill="#93C5FD" font-style="italic">Service Fees</text>
+<!-- Service fee lines: OpCos → Shared Services Co (centre x=420 y=415) -->
+<line x1="210" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
+<line x1="350" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
+<line x1="490" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
+<line x1="630" y1="358" x2="420" y2="415" stroke="#93C5FD" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#mp-svc)"/>
+<text x="565" y="392" font-size="7" fill="#93C5FD" font-style="italic">Service Fees</text>
 
-<!-- Shared Services Co — Support Layer: x=310 w=220 center=420 y=415 h=52 -->
+<!-- Shared Services Co — centre x=420 -->
 <rect x="310" y="415" width="220" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
 <text x="420" y="437" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Shared Services Co</text>
 <text x="420" y="451" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future — Support Layer</text>
 <text x="420" y="462" text-anchor="middle" font-size="7.5" fill="#93C5FD">Shared services for all OpCos when incorporated</text>
 
-<text x="380" y="492" text-anchor="middle" font-size="9.5" font-style="italic" fill="#C4CBD5">Joel Nebauer — Director / Controller</text>
+<text x="420" y="492" text-anchor="middle" font-size="9.5" font-style="italic" fill="#C4CBD5">Joel Nebauer — Director / Controller</text>
 </svg>
 </div>
 </div>
@@ -359,67 +371,66 @@ footer p{font-size:9.5px;color:#C8D0DC}
   </marker>
 </defs>
 
-<text x="375" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A">Xero Structure</text>
-<text x="375" y="51" text-anchor="middle" font-size="9" fill="#16A34A" letter-spacing="1.8">PROPOSED SETUP — FOR REVIEW</text>
-<line x1="230" y1="59" x2="520" y2="59" stroke="#D1FAE5" stroke-width="0.75"/>
+<text x="330" y="34" text-anchor="middle" font-size="14" font-weight="600" fill="#1E2B3A">Xero Structure</text>
+<text x="330" y="51" text-anchor="middle" font-size="9" fill="#16A34A" letter-spacing="1.8">PROPOSED SETUP — FOR REVIEW</text>
+<line x1="185" y1="59" x2="475" y2="59" stroke="#D1FAE5" stroke-width="0.75"/>
 
-<!-- ── ROW 1 LABEL ── -->
-<text x="30" y="76" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRUST &amp; HOLDING LAYER — each has its own Xero org</text>
+<!-- ── ROW 1: Trust & Holding Layer ── -->
+<text x="20" y="76" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRUST &amp; HOLDING LAYER — each has its own Xero org</text>
 
-<!-- NFT: x=30 w=160 center=110 -->
-<rect x="30" y="82" width="160" height="50" rx="7" fill="#1C3A80"/>
+<!-- NFT: x=20 w=180 centre=110 -->
+<rect x="20" y="82" width="180" height="50" rx="7" fill="#1C3A80"/>
 <text x="110" y="103" text-anchor="middle" font-size="10.5" font-weight="500" fill="#fff">Nebauer Family Trust</text>
 <text x="110" y="119" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.58)">Discretionary Trust</text>
 
-<!-- Innovative Focus: x=210 w=225 center=322 — Portfolio Hub, bold border -->
-<rect x="210" y="82" width="225" height="50" rx="7" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
-<text x="322" y="101" text-anchor="middle" font-size="11" font-weight="600" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
-<text x="322" y="117" text-anchor="middle" font-size="7.5" fill="#6B7280">Corporate Beneficiary · Holding Company · Portfolio Hub</text>
+<!-- Innovative Focus: x=215 w=230 centre=330 — Portfolio Hub, bold border -->
+<rect x="215" y="82" width="230" height="50" rx="7" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
+<text x="330" y="101" text-anchor="middle" font-size="11" font-weight="600" fill="#1E2B3A">Innovative Focus Pty Ltd</text>
+<text x="330" y="117" text-anchor="middle" font-size="7.5" fill="#6B7280">Corporate Beneficiary · Holding Company · Portfolio Hub</text>
 
-<!-- ── CONNECTION: IF → 3 trading entities ── -->
-<!-- Trunk from IF bottom (x=322, y=132) to bar (y=175) -->
-<line x1="322" y1="132" x2="322" y2="175" stroke="#B0BEC5" stroke-width="1.5"/>
-<!-- Bar: Xzibit=172, Shared Services=362, Museum=555 -->
-<line x1="172" y1="175" x2="555" y2="175" stroke="#B0BEC5" stroke-width="1.5"/>
-<circle cx="322" cy="175" r="3" fill="#C8D0DC"/>
-<!-- 100% labels above drops -->
-<!-- Drops -->
-<line x1="172" y1="175" x2="172" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx)"/>
-<line x1="362" y1="175" x2="362" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-fut)"/>
-<line x1="555" y1="175" x2="555" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-fut)"/>
+<!-- ── CONNECTION: IF trunk → bar → 3 trading entities ── -->
+<!-- Trunk: IF bottom (330, 132) → circle (330, 175) -->
+<line x1="330" y1="132" x2="330" y2="175" stroke="#B0BEC5" stroke-width="1.5"/>
+<!-- Bar: 140 → 520, midpoint=330 — symmetric -->
+<line x1="140" y1="175" x2="520" y2="175" stroke="#B0BEC5" stroke-width="1.5"/>
+<circle cx="330" cy="175" r="3" fill="#C8D0DC"/>
+<!-- Drops at 140, 330, 520 -->
+<line x1="140" y1="175" x2="140" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx)"/>
+<line x1="330" y1="175" x2="330" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-fut)"/>
+<line x1="520" y1="175" x2="520" y2="193" stroke="#B0BEC5" stroke-width="1.5" marker-end="url(#mx-fut)"/>
 
-<!-- ── ROW 2 LABEL ── -->
-<text x="30" y="190" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRADING ENTITIES — OWNED BY INNOVATIVE FOCUS (100%)</text>
+<!-- ── ROW 2: Trading Entities ── -->
+<text x="20" y="190" font-size="7.5" font-weight="600" fill="#C8D0DC" letter-spacing="1.2">TRADING ENTITIES — OWNED BY INNOVATIVE FOCUS (100%)</text>
 
-<!-- Xzibit: x=87 w=170 center=172 -->
-<rect x="87" y="196" width="170" height="52" rx="6" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="172" y="218" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
-<text x="172" y="234" text-anchor="middle" font-size="8" fill="#9CA3AF">Trading Company — Active</text>
+<!-- Xzibit: x=55 w=170 centre=140 -->
+<rect x="55" y="196" width="170" height="52" rx="6" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="140" y="218" text-anchor="middle" font-size="10" font-weight="500" fill="#1E2B3A">Xzibit Pty Ltd</text>
+<text x="140" y="234" text-anchor="middle" font-size="8" fill="#9CA3AF">Trading Company — Active</text>
 
-<!-- Shared Services Co: x=277 w=170 center=362 — future -->
-<rect x="277" y="196" width="170" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
-<text x="362" y="215" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Shared Services Co</text>
-<text x="362" y="228" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future Xero org</text>
-<text x="362" y="240" text-anchor="middle" font-size="7.5" fill="#93C5FD">Added when incorporated</text>
+<!-- Shared Services Co: x=245 w=170 centre=330 — future -->
+<rect x="245" y="196" width="170" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="330" y="215" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Shared Services Co</text>
+<text x="330" y="228" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future Xero org</text>
+<text x="330" y="240" text-anchor="middle" font-size="7.5" fill="#93C5FD">Added when incorporated</text>
 
-<!-- Museum: x=470 w=170 center=555 — future -->
-<rect x="470" y="196" width="170" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
-<text x="555" y="215" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Museum Pty Ltd</text>
-<text x="555" y="228" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future Xero org</text>
-<text x="555" y="240" text-anchor="middle" font-size="7.5" fill="#93C5FD">Added when incorporated</text>
+<!-- Museum: x=435 w=170 centre=520 — future -->
+<rect x="435" y="196" width="170" height="52" rx="6" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+<text x="520" y="215" text-anchor="middle" font-size="9.5" font-weight="500" fill="#1E3A7A">Museum Pty Ltd</text>
+<text x="520" y="228" text-anchor="middle" font-size="8" font-weight="500" fill="#2563EB">Future Xero org</text>
+<text x="520" y="240" text-anchor="middle" font-size="7.5" fill="#93C5FD">Added when incorporated</text>
 
 <!-- ── Caption ── -->
-<text x="375" y="272" text-anchor="middle" font-size="8.5" font-style="italic" fill="#C8D0DC">Intercompany balances tracked via Due To / Due From accounts in each Xero org · Adviser access: Vanessa</text>
+<text x="330" y="272" text-anchor="middle" font-size="8.5" font-style="italic" fill="#C8D0DC">Intercompany balances tracked via Due To / Due From accounts in each Xero org · Adviser access: Vanessa</text>
 
 <!-- ── Legend ── -->
-<rect x="30"  y="284" width="11" height="11" rx="2" fill="#1C3A80"/>
-<text x="47"  y="293" font-size="8.5" fill="#9CA3AF">Trust</text>
-<rect x="88"  y="284" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
-<text x="105" y="293" font-size="8.5" fill="#9CA3AF">Portfolio Hub</text>
-<rect x="198" y="284" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
-<text x="215" y="293" font-size="8.5" fill="#9CA3AF">Existing Entity</text>
-<rect x="318" y="284" width="11" height="11" rx="2" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5"/>
-<text x="335" y="293" font-size="8.5" fill="#9CA3AF">Future Entity (own org when incorporated)</text>
+<rect x="20"  y="284" width="11" height="11" rx="2" fill="#1C3A80"/>
+<text x="37"  y="293" font-size="8.5" fill="#9CA3AF">Trust</text>
+<rect x="78"  y="284" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#1E2B3A" stroke-width="2"/>
+<text x="95"  y="293" font-size="8.5" fill="#9CA3AF">Portfolio Hub</text>
+<rect x="188" y="284" width="11" height="11" rx="2" fill="#F4F6F9" stroke="#C8D0DC" stroke-width="1"/>
+<text x="205" y="293" font-size="8.5" fill="#9CA3AF">Existing Entity</text>
+<rect x="308" y="284" width="11" height="11" rx="2" fill="#EBF5FF" stroke="#2563EB" stroke-width="1.5"/>
+<text x="325" y="293" font-size="8.5" fill="#9CA3AF">Future Entity (own org when incorporated)</text>
 </svg>
 </div>
 </div>
@@ -843,6 +854,58 @@ function checkCode(){
     inp.value = '';
     setTimeout(function(){ inp.classList.remove('error'); err.textContent=''; }, 1500);
   }
+}
+// ──────────────────────────────────────────────────────
+
+// ── Last updated ──────────────────────────────────────
+(function(){
+  var lm = new Date(document.lastModified);
+  var el = document.getElementById('last-updated');
+  if (el && !isNaN(lm.getTime()) && lm.getFullYear() > 2000) {
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var h = lm.getHours(), m = lm.getMinutes();
+    el.textContent = 'Updated ' + lm.getDate() + ' ' + months[lm.getMonth()] + ' ' + lm.getFullYear()
+      + ' ' + String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
+  }
+})();
+
+// ── Export PDF ────────────────────────────────────────
+async function exportPDF() {
+  var btn = document.getElementById('pdf-btn');
+  var orig = btn.textContent;
+  btn.textContent = 'Generating…';
+  btn.disabled = true;
+  try {
+    var panel = document.querySelector('.tab-panel.active');
+    var tabName = document.querySelector('.tab-btn.active').textContent.replace(/[✦\s]+$/g,'').trim();
+    var canvas = await html2canvas(panel, {
+      scale: 2,
+      backgroundColor: '#ffffff',
+      useCORS: true,
+      allowTaint: false,
+      scrollX: 0,
+      scrollY: -window.scrollY,
+      windowWidth: document.documentElement.scrollWidth,
+      windowHeight: document.documentElement.scrollHeight
+    });
+    var { jsPDF } = window.jspdf;
+    var imgData = canvas.toDataURL('image/png');
+    var cW = canvas.width, cH = canvas.height;
+    var landscape = cW > cH;
+    var pdf = new jsPDF({ orientation: landscape ? 'l' : 'p', unit: 'pt', format: 'a4' });
+    var pgW = pdf.internal.pageSize.getWidth();
+    var pgH = pdf.internal.pageSize.getHeight();
+    var margin = 28;
+    var sc = Math.min((pgW - margin*2) / cW, (pgH - margin*2) / cH);
+    var iW = cW * sc, iH = cH * sc;
+    pdf.addImage(imgData, 'PNG', (pgW-iW)/2, (pgH-iH)/2, iW, iH);
+    pdf.save('Nebauer-Structure-' + tabName.replace(/\s+/g,'-') + '.pdf');
+  } catch(e) {
+    console.error('PDF export error:', e);
+    alert('PDF export failed — try File → Print then choose “Save as PDF”.');
+  }
+  btn.textContent = orig;
+  btn.disabled = false;
 }
 // ──────────────────────────────────────────────────────
 </script>
